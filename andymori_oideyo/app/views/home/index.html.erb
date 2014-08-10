@@ -1,0 +1,9 @@
+<h1>andymori おいでよ</h1>
+
+<% @lines.each do |line| %>
+	<%if line.content == ""%>
+		<p>&nbsp;</p>
+	<%else%>
+		<p><%= line.content %></p>
+	<%end%>
+<%end%>

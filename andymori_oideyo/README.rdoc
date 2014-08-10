@@ -1,0 +1,4 @@
+###Used Polymorphism (vote, voteable etc..) for implementing a voting system.
+
+
+###Used ProtectedAttribute (https://github.com/rails/protected_attributes ) for using "attr_accessible" in model files, which operation is not supported in Rails 4.1. 
