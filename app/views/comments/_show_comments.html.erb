@@ -1,0 +1,7 @@
+<%unless comments == nil%>
+	<%comments.each do |comment|%>
+		<%if line_id.to_s == comment.line_id.to_s %>
+			<p><%=comment.content%></p>
+		<%end%>	
+	<%end%>
+<%end%>

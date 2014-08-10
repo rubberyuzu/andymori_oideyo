@@ -2,9 +2,12 @@
 
 <% @lines.each do |line| %>
 	<%if line.content == ""%>
-		<p>&nbsp;</p>
+		<h3>&nbsp;</h3>
+		<%=render partial: "/comments/show_comments", locals: {:line_id => line.id, :comments => @comments}%>
+		<%=render partial: "/comments/add_comment", locals: {:line_id => line.id}%>
 	<%else%>
-		<p><%= line.content %></p>
-		<%=render partial: "add_comment"%>
+		<h3><%= line.content %></h3>
+		<%=render partial: "/comments/show_comments", locals: {:line_id => line.id, :comments => @comments}%>
+		<%=render partial: "/comments/add_comment", locals: {:line_id => line.id}%>
 	<%end%>
 <%end%>

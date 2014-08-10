@@ -1,0 +1,7 @@
+<div class="add_comment_box">
+	<%= form_for @comment, url:{:action=>"create", :controller=>"comments"}, :remote => true do |f|%>
+		<%= f.text_area :content%>
+		<%= f.hidden_field :line_id, :value => line_id %>
+		<%= f.submit "submit"%>
+	<%end%>
+</div>

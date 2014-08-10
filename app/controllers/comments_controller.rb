@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
 	def create
-		Comment.create(content: params[:content])		
+		line = Line.find(params[:comment][:line_id])
+		line.comments.create(content: params[:comment][:content])		
 	end
 end
