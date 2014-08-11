@@ -6,7 +6,9 @@ class LinesController < ApplicationController
 		@lines = Line.all
 		@comment = Comment.new
 		@comments = Comment.all
-		render :template => 'home/index'
+		respond_to do |format|
+      format.json {render json: {votes: line.votes}}
+    end
 	end
 	def downvote
 		line = Line.find(params[:id])
@@ -15,6 +17,8 @@ class LinesController < ApplicationController
 		@lines = Line.all
 		@comment = Comment.new
 		@comments = Comment.all
-		render :template => 'home/index'
+		respond_to do |format|
+      format.json {render json: {votes: line.votes}}
+    end
 	end
 end

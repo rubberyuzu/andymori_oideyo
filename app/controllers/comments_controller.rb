@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
 		line = Line.find(params[:comment][:line_id])
 		line.comments.create(content: params[:comment][:content])		
 	end
+	
 	def upvote
 		comment = Comment.find(params[:id])
 		comment.votes += 1
@@ -10,8 +11,11 @@ class CommentsController < ApplicationController
 		@lines = Line.all
 		@comment = Comment.new
 		@comments = Comment.all
-		render :template => 'home/index'
-	end
+		respond_to do |format|
+      format.json {render json: {votes: comment.votes}}
+    end	
+  end
+
 	def downvote
 		comment = Comment.find(params[:id])
 		comment.votes -= 1
@@ -19,6 +23,8 @@ class CommentsController < ApplicationController
 		@lines = Line.all
 		@comment = Comment.new		
 		@comments = Comment.all
-		render :template => 'home/index'
+		respond_to do |format|
+      format.json {render json: {votes: comment.votes}}
+    end
 	end
 end

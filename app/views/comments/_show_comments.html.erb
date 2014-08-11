@@ -1,10 +1,10 @@
 <%unless comments == nil%>
 	<%comments.each do |comment|%>
-		<%if line_id.to_s == comment.line_id.to_s %>
+		<%if line_id.to_s == comment.line_id.to_s && comment.content != ""%>
 			<p><%=comment.content%></p>
-			  <%=button_to "+", '/comments/'+comment.id.to_s+'/upvote', :method => "put"%>
- 			  <%= comment.votes %>  
- 			  <%=button_to "-", '/comments/'+comment.id.to_s+'/downvote', :method => "put"%>
+			  <span class="upvote_button_comment" data-id=<%=comment.id%>><%=button_to "+", '/comments/'+comment.id.to_s+'/upvote', :method => "put", :remote=>true%></span>
+ 			  <span class="comment_votes <%=comment.id%>"><%= comment.votes %></span> 
+ 			  <span class="downvote_button_comment" data-id=<%=comment.id%>><%=button_to "-", '/comments/'+comment.id.to_s+'/downvote', :method => "put", :remote=>true%></span>
 		<%end%>	
 	<%end%>
 <%end%>
