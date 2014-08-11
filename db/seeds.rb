@@ -1,3 +1,5 @@
+# coding: utf-8
+
 Line.create(content: "白い砂浜の海岸で見つけた貝殻を")
 Line.create(content: "漆黒の海に投げた")
 Line.create(content: "あの日の風は確かに")
