@@ -1612,3 +1612,144 @@ Migrating to CreateLines (20140810134215)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
   [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", "Uh Uh Uh(コーラス)"], ["created_at", "2014-08-11 13:38:14.999284"], ["updated_at", "2014-08-11 13:38:14.999284"], ["votes", 0]]
   [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+
+
+Started PUT "/lines/1/downvote" for 127.0.0.1 at 2014-08-11 23:25:45 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LinesController#downvote as HTML
+  Parameters: {"authenticity_token"=>"vjLPMfD/bh0qNb4qQuBakxA8LQPzflhp+w80s3j6yAM=", "id"=>"1"}
+  [1m[35mLine Load (0.2ms)[0m  SELECT  "lines".* FROM "lines"  WHERE "lines"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "lines" SET "updated_at" = ?, "votes" = ? WHERE "lines"."id" = 1  [["updated_at", "2014-08-11 14:25:46.827920"], ["votes", 3]]
+  [1m[36m (2.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mLine Load (0.4ms)[0m  SELECT "lines".* FROM "lines"
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/_show_comments.html.erb (1.3ms)
+  Rendered comments/_add_comment.html.erb (37.7ms)
+  Rendered comments/_show_comments.html.erb (0.1ms)
+  Rendered comments/_add_comment.html.erb (0.7ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.1ms)
+  Rendered comments/_add_comment.html.erb (0.8ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.7ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.8ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.8ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.8ms)
+  Rendered comments/_show_comments.html.erb (0.1ms)
+  Rendered comments/_add_comment.html.erb (1.2ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.9ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.7ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.7ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (1.1ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.7ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.9ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.7ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered comments/_show_comments.html.erb (0.0ms)
+  Rendered comments/_add_comment.html.erb (0.6ms)
+  Rendered home/index.html.erb within layouts/application (147.4ms)
+Completed 200 OK in 1273ms (Views: 1221.3ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/assets/comment.css?body=1" for 127.0.0.1 at 2014-08-11 23:25:48 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-11 23:25:48 +0900
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-11 23:25:48 +0900
+
+
+Started GET "/assets/vote.css?body=1" for 127.0.0.1 at 2014-08-11 23:25:48 +0900
+
+
+Started GET "/assets/line.css?body=1" for 127.0.0.1 at 2014-08-11 23:25:48 +0900
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-08-11 23:25:48 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-11 23:25:48 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-11 23:25:48 +0900
+
+
+Started GET "/assets/comment.js?body=1" for 127.0.0.1 at 2014-08-11 23:25:48 +0900
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-08-11 23:25:48 +0900
+
+
+Started GET "/assets/line.js?body=1" for 127.0.0.1 at 2014-08-11 23:25:48 +0900
+
+
+Started GET "/assets/vote.js?body=1" for 127.0.0.1 at 2014-08-11 23:25:48 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-11 23:25:48 +0900
