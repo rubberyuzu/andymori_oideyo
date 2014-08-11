@@ -5,6 +5,7 @@ class LinesController < ApplicationController
 		line.save
 		@lines = Line.all
 		@comment = Comment.new
+		@comments = Comment.all
 		render :template => 'home/index'
 	end
 	def downvote
@@ -13,6 +14,7 @@ class LinesController < ApplicationController
 		line.save
 		@lines = Line.all
 		@comment = Comment.new
+		@comments = Comment.all
 		render :template => 'home/index'
 	end
 end
