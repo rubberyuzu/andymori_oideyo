@@ -5,10 +5,10 @@
 		<h3>&nbsp;</h3>
 	<%else%>
 		<h3><%= line.content %></h3>
+	  <span class="upvote_button_line" data-id=<%=line.id%>><%=button_to "+", '/lines/'+line.id.to_s+'/upvote', :method => "put", :remote =>true%></span>
+	  <span class="line_votes <%=line.id%>"><%= line.votes %></span>  
+	  <span class="downvote_button_line" data-id=<%=line.id%>><%=button_to "-", '/lines/'+line.id.to_s+'/downvote', :method => "put", :remote =>true%></span>  
   <% end %>
-  <%=button_to "+", '/lines/'+line.id.to_s+'/upvote', :method => "put"%>
-  <%= line.votes %>  
-  <%=button_to "-", '/lines/'+line.id.to_s+'/downvote', :method => "put"%>  
 		<%=render partial: "/comments/show_comments", locals: {:line_id => line.id, :comments => @comments}%>
 		<%=render partial: "/comments/add_comment", locals: {:line_id => line.id}%>
 <%end%>
