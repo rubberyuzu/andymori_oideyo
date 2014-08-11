@@ -3,11 +3,12 @@
 <% @lines.each do |line| %>
 	<%if line.content == ""%>
 		<h3>&nbsp;</h3>
-		<%=render partial: "/comments/show_comments", locals: {:line_id => line.id, :comments => @comments}%>
-		<%=render partial: "/comments/add_comment", locals: {:line_id => line.id}%>
 	<%else%>
 		<h3><%= line.content %></h3>
+  <% end %>
+  <%=button_to "+", '/lines/'+line.id.to_s+'/upvote', :method => "put"%>
+  <%= line.votes %>  
+  <%=button_to "-", '/lines/'+line.id.to_s+'/downvote', :method => "put"%>  
 		<%=render partial: "/comments/show_comments", locals: {:line_id => line.id, :comments => @comments}%>
 		<%=render partial: "/comments/add_comment", locals: {:line_id => line.id}%>
-	<%end%>
 <%end%>

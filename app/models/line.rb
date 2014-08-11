@@ -1,6 +1,8 @@
 class Line < ActiveRecord::Base
-	attr_accessible :content
-
+	attr_accessible :content, :votes
+	before_save :default_votes
+	def default_votes
+		self.votes ||= 0
+	end	
 	has_many :comments
-	has_many :votes, :as => :voteable
 end
