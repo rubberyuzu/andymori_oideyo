@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
 	def create
 		line = Line.find(params[:comment][:line_id])
-		line.comments.create(content: params[:comment][:content])		
+		line.comments.create(content: params[:comment][:content])
+		redirect_to :back
 	end
 	
 	def upvote
@@ -27,4 +28,5 @@ class CommentsController < ApplicationController
       format.json {render json: {votes: comment.votes}}
     end
 	end
+
 end
