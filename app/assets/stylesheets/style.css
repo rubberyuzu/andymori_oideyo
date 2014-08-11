@@ -1,0 +1,11 @@
+body{
+	color:#082433;
+}
+.line_text{
+	background-color: #99CCFF;
+	background:rgba(0,0,255,0.02);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 10px;
+
+}

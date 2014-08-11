@@ -1,14 +1,33 @@
-<h1>andymori おいでよ</h1>
+<div class="container">
+	<div class="sixteen columns">
+		<h1 h1 class="remove-bottom" style="margin-top: 40px; color:#082433;">andymori おいでよ</h1>
+		<hr />
+	</div>
 
-<% @lines.each do |line| %>
-	<%if line.content == ""%>
-		<h3>&nbsp;</h3>
-	<%else%>
-		<h3><%= line.content %></h3>
-	  <span class="upvote_button_line" data-id=<%=line.id%>><%=button_to "+", '/lines/'+line.id.to_s+'/upvote', :method => "put", :remote =>true%></span>
-	  <span class="line_votes <%=line.id%>"><%= line.votes %></span>  
-	  <span class="downvote_button_line" data-id=<%=line.id%>><%=button_to "-", '/lines/'+line.id.to_s+'/downvote', :method => "put", :remote =>true%></span>  
-  <% end %>
-		<%=render partial: "/comments/show_comments", locals: {:line_id => line.id, :comments => @comments}%>
-		<%=render partial: "/comments/add_comment", locals: {:line_id => line.id}%>
-<%end%>
+	<div class="sixteen columns">
+	<div class="vertical-line" />
+		<% @lines.each do |line| %>
+			<%if line.content == ""%>
+				<div class="eight columns alpha line_text">
+					<h3 >&nbsp;</h3>
+				</div>
+			<%else%>
+				<div class="eight columns alpha line_text">
+					<h3 class="six columns alpha" style="color:#082433;padding-left: 10px;"><%= line.content %></h3>
+					<div style="padding-right: 10px;">
+				  <span style="float:right" class="downvote_button_line" data-id=<%=line.id%>><%=button_to "▼", '/lines/'+line.id.to_s+'/downvote', :method => "put", :remote =>true%></span>  
+				  <span style="float:right" class="line_votes <%=line.id%>"><%= line.votes %></span>  
+				  <span style="float:right" class="upvote_button_line" data-id=<%=line.id%>><%=button_to "▲", '/lines/'+line.id.to_s+'/upvote', :method => "put", :remote =>true%></span>
+				  </div>
+		  	</div>
+		  <% end %>
+				<div class="eight columns omega">
+					<%=render partial: "/comments/show_comments", locals: {:line_id => line.id, :comments => @comments}%>
+					<%=render partial: "/comments/add_comment", locals: {:line_id => line.id}%>
+				</div>
+				<hr style="display: block; height: 1px;
+    border: 0; border-top: 1px solid white;
+    margin: 1em 0; padding: 0; " />
+		<%end%>
+	</div>
+</div>

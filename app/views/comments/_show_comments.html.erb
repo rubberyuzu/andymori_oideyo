@@ -1,10 +1,12 @@
 <%unless comments == nil%>
 	<%comments.each do |comment|%>
 		<%if line_id.to_s == comment.line_id.to_s && comment.content != ""%>
-			<p><%=comment.content%></p>
-			  <span class="upvote_button_comment" data-id=<%=comment.id%>><%=button_to "+", '/comments/'+comment.id.to_s+'/upvote', :method => "put", :remote=>true%></span>
- 			  <span class="comment_votes <%=comment.id%>"><%= comment.votes %></span> 
- 			  <span class="downvote_button_comment" data-id=<%=comment.id%>><%=button_to "-", '/comments/'+comment.id.to_s+'/downvote', :method => "put", :remote=>true%></span>
+			<p class="five columns alpha"><%=comment.content%></p>
+			  <div class="two columns"> 
+	 			  <span class="downvote_button_comment" data-id=<%=comment.id%> style="float:right"><%=button_to "▼", '/comments/'+comment.id.to_s+'/downvote', :method => "put", :remote=>true%></span>
+	 			  <span class="comment_votes <%=comment.id%>" style="float:right"><%= comment.votes %></span> 
+				  <span class="upvote_button_comment" style="float:right" data-id=<%=comment.id%>><%=button_to "▲", '/comments/'+comment.id.to_s+'/upvote', :method => "put", :remote=>true%></span>
+				 </div>
 		<%end%>	
 	<%end%>
-<%end%>
+<%end%>	
