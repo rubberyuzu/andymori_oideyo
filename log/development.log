@@ -1001,3 +1001,327 @@ Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-11 01:01:38
   [1m[36mComment Load (2.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
   [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"
   [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateComments (20140810134209)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar(255), "voteable_id" integer, "voteable_type" varchar(255), "line_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140810134209"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to CreateLines (20140810134215)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "lines" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar(255), "voteable_id" integer, "voteable_type" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140810134215"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateVotes (20140810134713)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "votes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "voteable_id" integer, "voteable_type" varchar(255), "value" integer DEFAULT 1, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140810134713"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "白い砂浜の海岸で見つけた貝殻を"], ["created_at", "2014-08-11 04:05:22.327887"], ["updated_at", "2014-08-11 04:05:22.327887"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "漆黒の海に投げた"], ["created_at", "2014-08-11 04:05:22.331450"], ["updated_at", "2014-08-11 04:05:22.331450"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "あの日の風は確かに"], ["created_at", "2014-08-11 04:05:22.333447"], ["updated_at", "2014-08-11 04:05:22.333447"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "君の頬を撫でていたのさ"], ["created_at", "2014-08-11 04:05:22.335413"], ["updated_at", "2014-08-11 04:05:22.335413"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 04:05:22.337322"], ["updated_at", "2014-08-11 04:05:22.337322"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 04:05:22.339281"], ["updated_at", "2014-08-11 04:05:22.339281"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 04:05:22.341080"], ["updated_at", "2014-08-11 04:05:22.341080"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 04:05:22.342933"], ["updated_at", "2014-08-11 04:05:22.342933"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 04:05:22.344579"], ["updated_at", "2014-08-11 04:05:22.344579"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 04:05:22.346361"], ["updated_at", "2014-08-11 04:05:22.346361"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "おいでおいでよ今すぐに抜け出しておいで"], ["created_at", "2014-08-11 04:05:22.348159"], ["updated_at", "2014-08-11 04:05:22.348159"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "灰色の教室の窓の外から"], ["created_at", "2014-08-11 04:05:22.350058"], ["updated_at", "2014-08-11 04:05:22.350058"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "おいでおいでよ今すぐに抜け出しておいで"], ["created_at", "2014-08-11 04:05:22.351688"], ["updated_at", "2014-08-11 04:05:22.351688"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "群青の空に今日も月が輝く"], ["created_at", "2014-08-11 04:05:22.353498"], ["updated_at", "2014-08-11 04:05:22.353498"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "Uh Uh Uh(コーラス)"], ["created_at", "2014-08-11 04:05:22.355538"], ["updated_at", "2014-08-11 04:05:22.355538"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "夏の青い空の白い雲に"], ["created_at", "2014-08-11 04:05:22.357207"], ["updated_at", "2014-08-11 04:05:22.357207"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "すいかの赤がにじんだ"], ["created_at", "2014-08-11 04:05:22.359029"], ["updated_at", "2014-08-11 04:05:22.359029"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 04:05:22.360988"], ["updated_at", "2014-08-11 04:05:22.360988"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 04:05:22.362704"], ["updated_at", "2014-08-11 04:05:22.362704"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 04:05:22.364417"], ["updated_at", "2014-08-11 04:05:22.364417"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 04:05:22.366247"], ["updated_at", "2014-08-11 04:05:22.366247"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 04:05:22.368215"], ["updated_at", "2014-08-11 04:05:22.368215"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 04:05:22.370015"], ["updated_at", "2014-08-11 04:05:22.370015"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 04:05:22.371734"], ["updated_at", "2014-08-11 04:05:22.371734"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 04:05:22.373383"], ["updated_at", "2014-08-11 04:05:22.373383"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "おいでおいでよ今すぐに抜け出しておいで"], ["created_at", "2014-08-11 04:05:22.375095"], ["updated_at", "2014-08-11 04:05:22.375095"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 04:05:22.376970"], ["updated_at", "2014-08-11 04:05:22.376970"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "おいでおいでよ今すぐに抜け出しておいで"], ["created_at", "2014-08-11 04:05:22.378795"], ["updated_at", "2014-08-11 04:05:22.378795"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 04:05:22.380799"], ["updated_at", "2014-08-11 04:05:22.380799"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 04:05:22.382677"], ["updated_at", "2014-08-11 04:05:22.382677"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 04:05:22.384560"], ["updated_at", "2014-08-11 04:05:22.384560"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "なぜ時は悲しみをつれてくる"], ["created_at", "2014-08-11 04:05:22.386663"], ["updated_at", "2014-08-11 04:05:22.386663"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "なぜ沈黙は何よりも愛を語る"], ["created_at", "2014-08-11 04:05:22.388879"], ["updated_at", "2014-08-11 04:05:22.388879"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 04:05:22.390915"], ["updated_at", "2014-08-11 04:05:22.390915"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "黄金の庭のみえる部屋で"], ["created_at", "2014-08-11 04:05:22.392672"], ["updated_at", "2014-08-11 04:05:22.392672"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "君と夕食のテーブルで話そう"], ["created_at", "2014-08-11 04:05:22.394540"], ["updated_at", "2014-08-11 04:05:22.394540"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 04:05:22.396623"], ["updated_at", "2014-08-11 04:05:22.396623"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 04:05:22.398628"], ["updated_at", "2014-08-11 04:05:22.398628"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "おいでおいでよ今すぐに抜け出しておいで"], ["created_at", "2014-08-11 04:05:22.400496"], ["updated_at", "2014-08-11 04:05:22.400496"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 04:05:22.402454"], ["updated_at", "2014-08-11 04:05:22.402454"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "おいでおいでよ今すぐに抜け出しておいで"], ["created_at", "2014-08-11 04:05:22.404375"], ["updated_at", "2014-08-11 04:05:22.404375"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "群青の空に今日も星が輝く"], ["created_at", "2014-08-11 04:05:22.405856"], ["updated_at", "2014-08-11 04:05:22.405856"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "Uh Uh Uh(コーラス)"], ["created_at", "2014-08-11 04:05:22.407631"], ["updated_at", "2014-08-11 04:05:22.407631"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "Uh Uh Uh(コーラス)"], ["created_at", "2014-08-11 04:05:22.409706"], ["updated_at", "2014-08-11 04:05:22.409706"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateComments (20140810134209)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar(255), "voteable_id" integer, "voteable_type" varchar(255), "line_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140810134209"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateLines (20140810134215)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "lines" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar(255), "voteable_id" integer, "voteable_type" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140810134215"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Migrating to CreateVotes (20140810134713)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "votes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "voteable_id" integer, "voteable_type" varchar(255), "value" integer DEFAULT 1, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140810134713"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateComments (20140810134209)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar(255), "votes" integer, "line_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140810134209"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreateLines (20140810134215)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "lines" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar(255), "votes" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140810134215"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", "白い砂浜の海岸で見つけた貝殻を"], ["created_at", "2014-08-11 12:45:57.993783"], ["updated_at", "2014-08-11 12:45:57.993783"], ["votes", 0]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", "漆黒の海に投げた"], ["created_at", "2014-08-11 12:45:57.999425"], ["updated_at", "2014-08-11 12:45:57.999425"], ["votes", 0]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", "あの日の風は確かに"], ["created_at", "2014-08-11 12:45:58.001457"], ["updated_at", "2014-08-11 12:45:58.001457"], ["votes", 0]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", "君の頬を撫でていたのさ"], ["created_at", "2014-08-11 12:45:58.003572"], ["updated_at", "2014-08-11 12:45:58.003572"], ["votes", 0]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 12:45:58.005629"], ["updated_at", "2014-08-11 12:45:58.005629"], ["votes", 0]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 12:45:58.008071"], ["updated_at", "2014-08-11 12:45:58.008071"], ["votes", 0]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 12:45:58.010859"], ["updated_at", "2014-08-11 12:45:58.010859"], ["votes", 0]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 12:45:58.012963"], ["updated_at", "2014-08-11 12:45:58.012963"], ["votes", 0]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 12:45:58.014718"], ["updated_at", "2014-08-11 12:45:58.014718"], ["votes", 0]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 12:45:58.016694"], ["updated_at", "2014-08-11 12:45:58.016694"], ["votes", 0]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", "おいでおいでよ今すぐに抜け出しておいで"], ["created_at", "2014-08-11 12:45:58.018591"], ["updated_at", "2014-08-11 12:45:58.018591"], ["votes", 0]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", "灰色の教室の窓の外から"], ["created_at", "2014-08-11 12:45:58.020434"], ["updated_at", "2014-08-11 12:45:58.020434"], ["votes", 0]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", "おいでおいでよ今すぐに抜け出しておいで"], ["created_at", "2014-08-11 12:45:58.022396"], ["updated_at", "2014-08-11 12:45:58.022396"], ["votes", 0]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", "群青の空に今日も月が輝く"], ["created_at", "2014-08-11 12:45:58.024528"], ["updated_at", "2014-08-11 12:45:58.024528"], ["votes", 0]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", "Uh Uh Uh(コーラス)"], ["created_at", "2014-08-11 12:45:58.026253"], ["updated_at", "2014-08-11 12:45:58.026253"], ["votes", 0]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", "夏の青い空の白い雲に"], ["created_at", "2014-08-11 12:45:58.028071"], ["updated_at", "2014-08-11 12:45:58.028071"], ["votes", 0]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", "すいかの赤がにじんだ"], ["created_at", "2014-08-11 12:45:58.029859"], ["updated_at", "2014-08-11 12:45:58.029859"], ["votes", 0]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 12:45:58.031783"], ["updated_at", "2014-08-11 12:45:58.031783"], ["votes", 0]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 12:45:58.033834"], ["updated_at", "2014-08-11 12:45:58.033834"], ["votes", 0]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 12:45:58.035718"], ["updated_at", "2014-08-11 12:45:58.035718"], ["votes", 0]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 12:45:58.037743"], ["updated_at", "2014-08-11 12:45:58.037743"], ["votes", 0]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 12:45:58.039599"], ["updated_at", "2014-08-11 12:45:58.039599"], ["votes", 0]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 12:45:58.041391"], ["updated_at", "2014-08-11 12:45:58.041391"], ["votes", 0]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 12:45:58.043357"], ["updated_at", "2014-08-11 12:45:58.043357"], ["votes", 0]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 12:45:58.045155"], ["updated_at", "2014-08-11 12:45:58.045155"], ["votes", 0]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", "おいでおいでよ今すぐに抜け出しておいで"], ["created_at", "2014-08-11 12:45:58.046944"], ["updated_at", "2014-08-11 12:45:58.046944"], ["votes", 0]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 12:45:58.048835"], ["updated_at", "2014-08-11 12:45:58.048835"], ["votes", 0]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", "おいでおいでよ今すぐに抜け出しておいで"], ["created_at", "2014-08-11 12:45:58.050432"], ["updated_at", "2014-08-11 12:45:58.050432"], ["votes", 0]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 12:45:58.052109"], ["updated_at", "2014-08-11 12:45:58.052109"], ["votes", 0]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 12:45:58.054087"], ["updated_at", "2014-08-11 12:45:58.054087"], ["votes", 0]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 12:45:58.055874"], ["updated_at", "2014-08-11 12:45:58.055874"], ["votes", 0]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", "なぜ時は悲しみをつれてくる"], ["created_at", "2014-08-11 12:45:58.057928"], ["updated_at", "2014-08-11 12:45:58.057928"], ["votes", 0]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", "なぜ沈黙は何よりも愛を語る"], ["created_at", "2014-08-11 12:45:58.059934"], ["updated_at", "2014-08-11 12:45:58.059934"], ["votes", 0]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 12:45:58.061916"], ["updated_at", "2014-08-11 12:45:58.061916"], ["votes", 0]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", "黄金の庭のみえる部屋で"], ["created_at", "2014-08-11 12:45:58.063913"], ["updated_at", "2014-08-11 12:45:58.063913"], ["votes", 0]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", "君と夕食のテーブルで話そう"], ["created_at", "2014-08-11 12:45:58.065994"], ["updated_at", "2014-08-11 12:45:58.065994"], ["votes", 0]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", ""], ["created_at", "2014-08-11 12:45:58.068027"], ["updated_at", "2014-08-11 12:45:58.068027"], ["votes", 0]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 12:45:58.069911"], ["updated_at", "2014-08-11 12:45:58.069911"], ["votes", 0]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", "おいでおいでよ今すぐに抜け出しておいで"], ["created_at", "2014-08-11 12:45:58.071682"], ["updated_at", "2014-08-11 12:45:58.071682"], ["votes", 0]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", ""], ["created_at", "2014-08-11 12:45:58.073486"], ["updated_at", "2014-08-11 12:45:58.073486"], ["votes", 0]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", "おいでおいでよ今すぐに抜け出しておいで"], ["created_at", "2014-08-11 12:45:58.075133"], ["updated_at", "2014-08-11 12:45:58.075133"], ["votes", 0]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", "群青の空に今日も星が輝く"], ["created_at", "2014-08-11 12:45:58.076828"], ["updated_at", "2014-08-11 12:45:58.076828"], ["votes", 0]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)[0m  [["content", "Uh Uh Uh(コーラス)"], ["created_at", "2014-08-11 12:45:58.078840"], ["updated_at", "2014-08-11 12:45:58.078840"], ["votes", 0]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lines" ("content", "created_at", "updated_at", "votes") VALUES (?, ?, ?, ?)  [["content", "Uh Uh Uh(コーラス)"], ["created_at", "2014-08-11 12:45:58.080811"], ["updated_at", "2014-08-11 12:45:58.080811"], ["votes", 0]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
