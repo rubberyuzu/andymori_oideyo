@@ -4,6 +4,6 @@ class HomeController < ApplicationController
 		@comment = Comment.new
 		@comments = Comment.all.sort_by &:id
 		@general_comment = GeneralComment.new
-		@general_comments = GeneralComment.all
+		@general_comments = GeneralComment.all.sort_by &:id
 	end
 end
