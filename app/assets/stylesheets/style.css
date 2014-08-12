@@ -1,0 +1,23 @@
+body{
+	color:#082433;
+}
+.line_text{
+	background-color: #99CCFF;
+	background:rgba(0,0,255,0.02);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 10px;
+
+}
+#general_comment_content{
+	width: 100%;
+}
+.general_comment_text{
+
+	background-color: red;
+	background: rgba(255, 0, 0, 0.03);
+	padding:10px;
+	border-radius: 10px;
+	margin: 10px;
+	
+}

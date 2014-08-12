@@ -19,4 +19,14 @@ $(document).ready(function() {
 		$('.comment_votes.'+comment_id+'').empty()
 		$('.comment_votes.'+comment_id+'').html(''+data.votes+'')
 	})
+	$(".upvote_button_general_comment").bind("ajax:success", function(event,data, status, xhr){
+		var general_comment_id = this.dataset.id
+		$('.general_comment_votes.'+general_comment_id+'').empty()
+		$('.general_comment_votes.'+general_comment_id+'').html(''+data.votes+'')
+	})
+	$(".downvote_button_general_comment").bind("ajax:success", function(event,data, status, xhr){
+		var general_comment_id = this.dataset.id
+		$('.general_comment_votes.'+general_comment_id+'').empty()
+		$('.general_comment_votes.'+general_comment_id+'').html(''+data.votes+'')
+	})
 	})

@@ -1,0 +1,6 @@
+<div class="add_general_comment_box">
+	<%= form_for @general_comment, url:{:action=>"create", :controller=>"general_comments"} do |f|%>
+		<span class="six columns" style="float:left;"><%= f.text_area :content%></span>
+		<span class="two columns" style="float:left; height:30px;"><%= f.submit "submit"%></span>
+	<%end%>
+</div>
