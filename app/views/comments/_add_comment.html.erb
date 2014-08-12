@@ -1,6 +1,6 @@
 <div class="add_comment_box">
 	<%= form_for @comment, url:{:action=>"create", :controller=>"comments"} do |f|%>
-		<span class="four columns" style="float:left;"><%= f.text_area :content, :rows => "10"%></span>
+		<span class="four columns" style="float:left;"><%= f.text_area :content, :rows => "2"%></span>
 		<span class="two columns" style="float:left; height:30px;"><%= f.submit "submit"%></span>
 		<%= f.hidden_field :line_id, :value => line_id %>
 	<%end%>
