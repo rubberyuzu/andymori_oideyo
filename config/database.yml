@@ -7,21 +7,22 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: myapp_development
+  database: andymori-oideyo_development
   pool: 5
-  username: myapp
+  username: 
   password:
+
 test:
   adapter: postgresql
   encoding: unicode
-  database: myapp_test
+  database: andymori-oideyo_test
   pool: 5
-  username: myapp
+  username: 
   password:
 production:
   adapter: postgresql
   encoding: unicode
-  database: myapp_production
+  database: andymori-oideyo_production
   pool: 5
-  username: myapp
+  username: 
   password:
