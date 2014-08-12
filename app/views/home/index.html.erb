@@ -25,7 +25,7 @@
 			<%else%>
 				<div class="eight columns alpha line_text">
 					<h3 class="six columns alpha" style="color:#082433;padding-left: 10px;"><%= line.content %></h3>
-					<div style="padding-right: 10px;">
+					<div class="two columns" style="padding-right: 10px;">
 				  <span style="float:right" class="downvote_button_line" data-id=<%=line.id%>><%=button_to "▼", '/lines/'+line.id.to_s+'/downvote', :method => "put", :remote =>true%></span>  
 				  <span style="float:right" class="line_votes <%=line.id%>"><%= line.votes %></span>  
 				  <span style="float:right" class="upvote_button_line" data-id=<%=line.id%>><%=button_to "▲", '/lines/'+line.id.to_s+'/upvote', :method => "put", :remote =>true%></span>
