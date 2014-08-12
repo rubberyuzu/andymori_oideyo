@@ -1,11 +1,16 @@
 <div class="container">
 	<div class="sixteen columns">
-		<h1 h1 class="remove-bottom" style="margin-top: 40px; color:#082433;">andymori おいでよ</h1>
+		<h1 h1 class="remove-bottom" style="margin-top: 40px; color:#082433;">andymori おいでよ
+			<div style="float:right"><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fandymori-oideyo.herokuapp.com%2F&amp;width=120px&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=25px" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:120px; height:25px;" allowTransparency="true"></iframe></div>
+			<div style="float:right"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://andymori-oideyo.herokuapp.com" data-text="andymori最後の新曲「おいでよ」の歌詞をかきこもう！" data-via="rubberyuzu" data-size="large" data-hashtags="andymori">Tweet</a></div>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+		</h1>
+		<!-- <div class="twelve columns omega"> -->
+		<!-- </div> -->
 		<hr />
 	</div>
 
 	<div class="sixteen columns">
-	<div class="vertical-line" />
 		<% @lines.each do |line| %>
 			<%if line.content == ""%>
 				<div class="eight columns alpha line_text">
@@ -29,5 +34,13 @@
     border: 0; border-top: 1px solid white;
     margin: 1em 0; padding: 0; " />
 		<%end%>
+		<hr />
+		</div>
+	<div class="ten columns ">
+	<h2>general comments...</h2>
+	<%=render partial: "/general_comments/show_general_comments", locals: {:general_comments => @general_comments}%>
+	<%=render partial: "/general_comments/add_general_comments"%>
+
 	</div>
+
 </div>

@@ -1,0 +1,2 @@
+module GeneralCommentHelper
+end

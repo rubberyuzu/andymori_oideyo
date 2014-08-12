@@ -1,0 +1,14 @@
+<%unless general_comments == nil%>
+	<%general_comments.each do |general_comment|%>
+		<%unless general_comment.content == ""%>
+		<div class="ten columns general_comment_text">
+			<p class="seven columns"><%=general_comment.content%></p>
+				  <div class="two columns"> 
+		 			  <span class="downvote_button_general_comment" data-id=<%=general_comment.id%> style="float:right"><%=button_to "▼", '/general_comments/'+general_comment.id.to_s+'/downvote', :method => "put", :remote=>true%></span>
+		 			  <span class="general_comment_votes <%=general_comment.id%>" style="float:right"><%= general_comment.votes %></span> 
+					  <span class="upvote_button_general_comment" style="float:right" data-id=<%=general_comment.id%>><%=button_to "▲", '/general_comments/'+general_comment.id.to_s+'/upvote', :method => "put", :remote=>true%></span>
+					 </div>
+		</div>
+		<%end%>	
+	<%end%>
+<%end%>	
